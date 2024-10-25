@@ -10,25 +10,26 @@
             <!-- Mashead text and app badges-->
             <div class="mb-5 mb-lg-0 text-center text-lg-start">
               <h1 *ngIf="!username" class="display-2 fw-bolder lh-1 mb-3">
-                It's not just food, it's an experience.
+                நம்ம Shopperoo-உ... எப்பவும் Sooperoo!
               </h1>
               <h1 *ngIf="username" class="display-4 fw-bolder lh-1 mb-3">
-                <span class="text-danger">Hey {{ username }}</span
-                >, Hungry? Make it Happy!
+                <span class="text-danger">வணக்கம் {{ username }}</span
+                >, start shopping now!
               </h1>
-              <p class="lead fw-normal text-muted mb-5">
-                When you're hungry, we'll be your best friend with a bag full of
-                warm food from our kitchen to yours.
-              </p>
             </div>
           </div>
-          <div class="col-lg-6 align-items-center">
+          <div class="col-lg-6 align-items-right">
+            <!-- Updated image for e-commerce theme -->
             <img
               class="app-badge"
-              src="https://i.ibb.co/hyr30nF/My-project.png"
-              alt="app-badge"
+              src="https://cdn.pixabay.com/photo/2016/09/30/17/22/ecommerce-1705788_640.png"
+              alt="e-commerce-banner"
+              style="width: 100%; height: auto;"
             />
           </div>
+            <p class="display-6 fw-normal mb-30 text-secondary">
+             TRENDING NOW !
+            </p>
         </div>
       </div>
     </header>
@@ -46,14 +47,12 @@
               alt=""
               class="w-25"
             />
-
             <p class="fs-3">
               <span class="text-danger">Sorry, no results found! </span>
             </p>
             <p class="lead" style="width: 50vw">
-              Please check the spelling or try searching for something else
+              Please check the spelling or try searching for something else.
             </p>
-            <!-- <a routerLink="" class="btn btn-danger">Go Home</a> -->
           </div>
         </div>
 
@@ -131,7 +130,7 @@
       <div class="modal-header">
         <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">
           <i class="fa-solid fa-user-plus me-3"></i>
-          <strong>Please Login for wishlisting a product !</strong>
+          <strong>Please Login to wishlist a product!</strong>
         </h1>
         <button
           type="button"
