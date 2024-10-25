@@ -2,6 +2,7 @@ const db = require("./db");
 //import jsonwebtoken
 const jwt = require("jsonwebtoken");
 
+
 // all products
 const allProducts = () => {
   return db.Product.find().then((result) => {
@@ -380,6 +381,32 @@ const addToCheckout = (
   });
 };
 
+// Add order
+const addOrder = (email, products, total) => {
+  return db.User.findOne({ email })
+    .then(user => {
+      if (user) {
+        const newOrder = {
+          products,
+          total,
+          date: new Date(),
+        };
+        user.orders.push(newOrder);
+        return user.save().then(() => {
+          return {
+            statusCode: 201,
+            message: 'Order added successfully',
+          };
+        });
+      } else {
+        return {
+          statusCode: 404,
+          message: 'User not found',
+        };
+      }
+    });
+};
+
 module.exports = {
   allProducts,
   viewProduct,
@@ -394,4 +421,5 @@ module.exports = {
   emptyCart,
   addToCheckout,
   getMyOrders,
+  addOrder,
 };

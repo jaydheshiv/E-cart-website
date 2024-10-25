@@ -13,9 +13,10 @@ import { CartComponent } from './cart/cart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { OrderTrackComponent } from './order-track/order-track.component';
+//import { OrderTrackComponent } from './order-track/order-track.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { NgxPayPalModule } from 'ngx-paypal';
+import { OrderedProductsComponent } from './order-track/order-track.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,12 @@ import { NgxPayPalModule } from 'ngx-paypal';
     WishlistComponent,
     PagenotfoundComponent,
     CheckoutComponent,
-    OrderTrackComponent,
+    
     FilterPipe,
+    AppComponent,
+    CheckoutComponent,
+  
+    OrderedProductsComponent,
   ],
   imports: [
     BrowserModule,

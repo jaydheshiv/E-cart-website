@@ -1,31 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../services/api.service';
 
 @Component({
-  selector: 'app-order-track',
+  selector: 'app-ordered-products',
   templateUrl: './order-track.component.html',
   styleUrls: ['./order-track.component.css'],
 })
-export class OrderTrackComponent implements OnInit {
-  success: boolean = true;
-  email: string = '';
-  orders: any = [];
-  constructor(private api: ApiService) {}
+export class OrderedProductsComponent implements OnInit {
+  products: any[] = [];
+  total: number = 0;
+
   ngOnInit(): void {
-    this.email = localStorage.getItem('email') || '';
-    if (this.email) {
-      this.getMyOrders();
-    }
-  }
-  getMyOrders() {
-    this.api.getMyOrders(this.email).subscribe(
-      (result: any) => {
-        console.log(result);
-        this.orders = result.checkout;
-      },
-      (error: any) => {
-        console.log('error', error);
-      }
-    );
+    // Load ordered products from localStorage
+    this.products = JSON.parse(localStorage.getItem('checkout') || '[]');
+
+    // Calculate total price of ordered products
+    this.products.forEach(product => {
+      this.total += product.price;
+    });
   }
 }

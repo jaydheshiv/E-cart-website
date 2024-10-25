@@ -51,7 +51,7 @@ export class ApiService {
     return this.http.get('http://localhost:3000/view-product/' + productId);
   }
 
-  // appending token to http headee
+  // appending token to http header
   appendToken() {
     // fetch token from local Storage
     const token = localStorage.getItem('token') || '';
@@ -65,7 +65,7 @@ export class ApiService {
     return options;
   }
 
-  //addTowishlist
+  //addToWishlist
   addToWishlist(email: any, productId: any) {
     const body = {
       email,
@@ -105,7 +105,7 @@ export class ApiService {
     );
   }
 
-  //addToCart
+  //updateCartItemCount
   updateCartItemCount(email: any, productId: any, count: any) {
     const body = {
       email,
@@ -132,7 +132,7 @@ export class ApiService {
     );
   }
 
-  //remove from cart
+  //empty cart
   emptyCart(email: any) {
     const body = {
       email,
@@ -143,8 +143,6 @@ export class ApiService {
       this.appendToken()
     );
   }
-  // create_time: '2023-02-20T05:19:08Z';
-  // id: '2NF61948LD649100D';
 
   //addToCheckout
   addToCheckout(
@@ -155,7 +153,7 @@ export class ApiService {
     amount: any,
     status: any,
     products: any,
-    detailes: any
+    details: any
   ) {
     const body = {
       email,
@@ -165,10 +163,24 @@ export class ApiService {
       amount,
       status,
       products,
-      detailes,
+      details,
     };
     return this.http.post(
       'http://localhost:3000/addToCheckout/',
+      body,
+      this.appendToken()
+    );
+  }
+
+  //addOrder
+  addOrder(email: string, products: any[], total: number) {
+    const body = {
+      email,
+      products,
+      total,
+    };
+    return this.http.post(
+      'http://localhost:3000/addOrder/',
       body,
       this.appendToken()
     );
@@ -180,6 +192,7 @@ export class ApiService {
       this.appendToken()
     );
   }
+
   getMyOrders(email: any) {
     return this.http.get(
       'http://localhost:3000/getMyOrders/' + email,

@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { HomeComponent } from './home/home.component';
-import { OrderTrackComponent } from './order-track/order-track.component';
+//import { OrderTrackComponent } from './order-track/order-track.component';
+import { OrderedProductsComponent } from './order-track/order-track.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ViewProductComponent } from './view-product/view-product.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
@@ -36,7 +37,11 @@ const routes: Routes = [
   },
   {
     path: 'track-order',
-    component: OrderTrackComponent,
+    component: OrderedProductsComponent,
+  },
+  {
+    path: 'ordered-products',
+    component: OrderedProductsComponent,
   },
   {
     path: '**',

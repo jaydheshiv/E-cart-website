@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/food-app", () => {
-  console.log("monogodb connection sucessful!!");
+mongoose.connect("mongodb://127.0.0.1:27017/foodapp", () => {
+  console.log("mongodb connection successful!!");
 });
 
 // models
-// to store product detailes
+// to store product details
 const Product = mongoose.model("Product", {
   id: Number,
   title: String,
@@ -18,7 +18,7 @@ const Product = mongoose.model("Product", {
   },
 });
 
-// to store user detailes
+// to store user details
 const User = mongoose.model("User", {
   username: String,
   email: String,
@@ -26,6 +26,13 @@ const User = mongoose.model("User", {
   checkout: [],
   cart: [],
   wishlist: [],
+  orders: [
+    {
+      products: Array,
+      total: Number,
+      date: Date,
+    },
+  ],
 });
 
 module.exports = {
