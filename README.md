@@ -11,17 +11,18 @@ Features:
 - products searching option by using pipes in angular
 - User login details will be stored in local storage, cleared on logout.
 - Wishlist, Add to cart, Track orders
-- Integrated payment gateway using PayPal sandbox
 - Option for selecting quantity of particular item
 
-https://user-images.githubusercontent.com/75427361/223946839-f667ba75-fcb5-4a26-ad45-4d7591642d58.mp4
+https://github.com/user-attachments/assets/d334fa05-3bed-41d4-826a-63c35dcf8bfd
 
 <br/>
 
 Pages:
 - Home
+- Login
+- Register
+- View product
 - Wishlist
 - Cart
 - Checkout
-- View product
 - My orders
